@@ -1,0 +1,48 @@
+<%layout("/layouts/boilerplate")%>
+<body>
+    <div class="row mt-3">
+    <div class="col-8 offset-2">
+    <h3>Edit your listing</h3>
+    <form method="post" action="/listings/<%=Listing.id%>?_method=put" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" value="<%=Listing.title%>" type="text" class="form-control" required>
+        <div class="valid-feedback">Title looks good!</div>
+        </div>
+        <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required><%=Listing.description%></textarea>
+        <div class="invalid-feedback">Enter a Short description</div>
+        </div>
+        <div class="mb-3">
+            <img src="<%=originalUrl%>">
+            </div>
+        <div class="mb-3">
+        <label for="image" class="form-label">Image-link</label>
+        <input name="listing[image]"  type="file" class="form-control">
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="price" class="form-label">Price</label>
+                <input name="listing[price]" value="<%=Listing.price%>" type="number" class="form-control" required>
+                <div class="invalid-feedback">Enter a valid Price</div>
+                </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" value="<%=Listing.country%>" type="text" class="form-control" required>
+                <div class="invalid-feedback">Enter a valid Country name</div>
+                </div>
+        </div>
+      
+        <div class="mb-3">
+        <label for="location" class="form-label">Location</label>    
+        <input name="listing[location]" value="<%=Listing.location%>" type="text" class="form-control" required>
+        <div class="invalid-feedback">Enter a valid location</div>
+        </div>
+       
+        <button class="btn btn-dark edit-btn mt-3">Edit</button>
+    </form>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
